@@ -23,6 +23,7 @@ class TransitionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transition)
 
+        mViewGroup = findViewById(R.id.constraint)
         val bitmapView = BitmapView(this)
         var newParams: ViewGroup.LayoutParams = ViewGroup.LayoutParams(80, 200)
         bitmapView.layoutParams = newParams
