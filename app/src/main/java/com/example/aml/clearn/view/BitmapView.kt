@@ -22,16 +22,12 @@ class BitmapView(context: Context?) : View(context) {
     }
 
     override fun onDraw(canvas: Canvas?) {
-        super.onDraw(canvas)
-        canvas ?: return
+        canvas ?: return super.onDraw(canvas)
         val paint = Paint()
         paint.style = Paint.Style.STROKE
         paint.color = Color.RED
         var rect = Rect((bitmap.width/13) * (product - 1), 0, (bitmap.width/13) * product, bitmap.height)
         canvas.drawBitmap(bitmap, rect, Rect(0, 0, bitmap.width/13, bitmap.height), paint)
-        postDelayed({
-            product = if (product <= 13) product + 1 else 1
-            invalidate()
-        }, 10)
+
     }
 }

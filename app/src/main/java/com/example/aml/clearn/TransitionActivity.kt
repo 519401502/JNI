@@ -22,7 +22,6 @@ class TransitionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transition)
-
         mViewGroup = findViewById(R.id.constraint)
         val bitmapView = BitmapView(this)
         var newParams: ViewGroup.LayoutParams = ViewGroup.LayoutParams(80, 200)

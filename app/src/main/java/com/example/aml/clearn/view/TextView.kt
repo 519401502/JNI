@@ -91,7 +91,7 @@ class TextView(context: Context?) : View(context) {
         canvas.drawPoints(floatArrayOf(1f, 2f, 3f), paint)
 //        绘制矩形
         var rect = RectF(0f, 0f, 0f, 0f)
-        canvas.drawRect(rect ,paint)
+        canvas.drawRect(rect, paint)
 //        绘制圆角矩形
         canvas.drawRoundRect(rect, 0f, 0f, paint)
         /**
@@ -106,14 +106,14 @@ class TextView(context: Context?) : View(context) {
 //        画笔填充
         paint.style = Paint.Style.FILL
         canvas.apply {
-//            保存状态
+            //            保存状态
             save()
 //            回滚到上一次的保存状态
             restore()
         }
 
 //        移动坐标，注意：相对于当前坐标，而不是屏幕
-        canvas.translate(0f,0f)
+        canvas.translate(0f, 0f)
 //        画布缩放0.5倍
         canvas.scale(0.5f, 0.5f)
 //        选装180度
@@ -134,7 +134,6 @@ class TextView(context: Context?) : View(context) {
         canvas.drawBitmap(null, Rect(), RectF(), paint)
 
 
-
     }
 
     fun picture(): Unit {
@@ -148,6 +147,57 @@ class TextView(context: Context?) : View(context) {
         picature.draw(canvas)
 //        另一种将Picature绘制出来，并且不会影响Canvas
         canvas.drawPicture(picature)
+//        Canvas画板的另一个神器 Path
+        val path = Path()
+//        移动path的坐标
+        path.moveTo(0f, 0f)
+//        从当前坐标指向某个点
+        path.lineTo(100f, 100f)
+//        重置最后一个点的坐标
+        path.setLastPoint(100f, 100f)
+//        画弧度
+        var r = RectF()
+        path.addArc(r, 0f, 270f)
+//        判断是否为空，也就是是否包含有线段
+        path.isEmpty
+//        判断是否是矩形
+        path.isRect(r)
+//        平移path
+        path.offset(100f, 10f)
+//        平移path之后存储平移之后的状态，不会影响当前的状态
+        path.offset(10f, 10f, Path())
+//        二阶贝塞尔曲线
+        path.quadTo(1f, 1f, 1f, 1f)
+//        三阶贝塞尔曲线
+        path.cubicTo(1f,1f,1f,1f,1f, 1f)
+        /**
+         * 不带r的方法是基于原点的坐标系(偏移量)，rXxx方法是基于当前点坐标系(偏移量)
+         */
+//        奇偶规则,填充图形围成的内部
+        path.fillType = Path.FillType.EVEN_ODD
+//        反奇偶规则，填充图形围成的外部
+        path.fillType = Path.FillType.INVERSE_EVEN_ODD
+//        非零环绕规则，最近环绕的一层
+        path.fillType = Path.FillType.WINDING
+//        反非零环绕规则
+        path.fillType = Path.FillType.INVERSE_WINDING
+//        PathMeasure 是Path的辅助类
+        var measure = PathMeasure()
+//        关联一个path,如果forceClosed为true则测量的是封闭状态下的长度，如果为false则测量的是原长度
+        measure.setPath(path, false)
+//        获取path的长度
+        measure.length
+//        截取path的片断, 截下的内容会添加到新path参数中，而不是替换path的内容
+        measure.getSegment(0f, 100f, Path(), true)
+//        跳到下一条线上，但都在一个path中
+        measure.nextContour()
+//        得到都一个位置的正切值
+        measure.getPosTan(0f, FloatArray(10), FloatArray(10))
+//        matrix 是 bitmap 的变形工具类
+        var matrix = Matrix()
+        matrix.setPolyToPoly(floatArrayOf(0f, 0f), 0, floatArrayOf(0f, 0f), 0, 4)
+//        当一个Canvas需要使用多个Matrix时，合并Matrix的方法如下
+        canvas.concat(matrix)
 
     }
 
