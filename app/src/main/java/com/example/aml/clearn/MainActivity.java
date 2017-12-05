@@ -1,6 +1,10 @@
 package com.example.aml.clearn;
 
 import android.animation.ObjectAnimator;
+import android.app.IntentService;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.v4.app.JobIntentService;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Property;
@@ -32,4 +36,12 @@ public class MainActivity extends AppCompatActivity {
      */
 
 //    public native String stringFromJNI();
+
+    class S extends JobIntentService{
+
+        @Override
+        protected void onHandleWork(@NonNull Intent intent) {
+
+        }
+    }
 }

@@ -72,6 +72,49 @@ class TextView(context: Context?) : View(context) {
             rawX
             rawY
         }
+//        手指不在控件区域时触发
+        MotionEvent.ACTION_OUTSIDE
+//        有非主要的手指按下（即之前已经有手指按下）
+        MotionEvent.ACTION_POINTER_DOWN
+//        有非主要的手指抬起（即现在还有手指在按着）
+        MotionEvent.ACTION_POINTER_UP
+//        获取多点触控，和getAction()一样
+        event.actionMasked
+///       获取是哪个手指触发的事件
+        event.actionIndex
+//        获取手指数目
+        event.pointerCount
+//        获取某个手指的坐标
+        event.apply {
+            getX(1)
+            getY(1)
+        }
+//        获取按下的时间
+        event.downTime
+//        获取当前事件发生的时间
+        event.eventTime
+//        获取第一个手指触碰的面积
+        event.getSize(1)
+        /**
+         * 获取输入设备的类型
+         */
+//        橡皮擦
+        MotionEvent.TOOL_TYPE_ERASER
+//        手指
+        MotionEvent.TOOL_TYPE_FINGER
+//        鼠标
+        MotionEvent.TOOL_TYPE_MOUSE
+//        手写笔
+        MotionEvent.TOOL_TYPE_STYLUS
+//        未知类型
+        MotionEvent.TOOL_TYPE_UNKNOWN
+
+//        遍历多个手指的事件
+        for (i in 0..event.pointerCount){
+            event.getPointerId(i)
+        }
+
+
         return super.onTouchEvent(event)
 
     }

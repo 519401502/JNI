@@ -1,16 +1,19 @@
 package com.example.aml.clearn
 
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.content.res.Resources
 import android.graphics.drawable.AnimationDrawable
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
 import android.support.design.widget.Snackbar
+import android.support.v4.app.JobIntentService
 import android.support.v7.app.AppCompatActivity
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ImageSpan
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -29,11 +32,6 @@ class ThemeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_theme)
-        mButton = findViewById(R.id.button)
-        mButton.setOnClickListener {
-            setTheme(R.style.AppTheme_Night)
-            recreate()
-        }
 
         var spanString = SpannableString("helloworld,helloworld!helloworld,helloworld!helloworld,\" +\n" +
                 "                    \"helloworld!helloworld,helloworld!")
@@ -42,4 +40,6 @@ class ThemeActivity : AppCompatActivity() {
         mTextView.text = spanString
 
     }
+
+
 }

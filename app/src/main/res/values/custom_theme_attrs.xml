@@ -3,4 +3,6 @@
     <!--定义attr 属性，注意name要与styles的name对应，没有很直接的关系，这里的name是供布局调用的-->
     <attr name="custom_attr_app_bg" format="color|reference"/>
     <attr name="custom_attr_app_title_layout_bg" format="color|reference"/>
+
+    <attr name="button_bg" format="color|reference"/>
 </resources>

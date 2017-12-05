@@ -1,10 +1,13 @@
 package com.example.aml.clearn
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.transition.ChangeBounds
 import android.support.transition.Scene
 import android.support.transition.TransitionManager
+import android.support.v4.app.JobIntentService
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +25,7 @@ class TransitionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transition)
+        startService(Intent(this, SS::class.java))
         mViewGroup = findViewById(R.id.constraint)
         val bitmapView = BitmapView(this)
         var newParams: ViewGroup.LayoutParams = ViewGroup.LayoutParams(200, 400)
@@ -47,5 +51,14 @@ class TransitionActivity : AppCompatActivity() {
 //        }
     }
 
+    class SS : JobIntentService() {
 
+        override fun onHandleWork(intent: Intent) {
+            for (i in 0..1000){
+                Thread.sleep(800)
+                Log.d("~", "正在执行JobIntentService")
+            }
+        }
+
+    }
 }
