@@ -18,5 +18,6 @@ public class SixActivity extends AppCompatActivity {
         Data data = new Data("", 22);
 //        binding.setVariable(BR.data, data);
         binding.setData(data);
+
     }
 }

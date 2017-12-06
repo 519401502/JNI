@@ -27,6 +27,7 @@
 
         <service android:name=".TransitionActivity$SS" />
 
+        <activity android:name=".TextQQ"></activity>
     </application>
 
 </manifest>

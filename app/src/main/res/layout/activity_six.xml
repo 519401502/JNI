@@ -2,9 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+        <import type="com.example.aml.clearn.entity.Data" alias="Datatt"/>
         <variable
             name="data"
-            type="com.example.aml.clearn.entity.Data"/>
+            type="Datatt"/>
+        <variable
+            name="zhao"
+            type="com.example.aml.clearn.Zhao"/>
     </data>
     <LinearLayout
         xmlns:tools="http://schemas.android.com/tools"
@@ -15,11 +19,16 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{data.name}"/>
+            android:visibility="@{data.name == null ? View.GONE : View.GONE}"
+            android:text="@{data.name ? data.name : zhao.name}"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="年龄"/>
+        <ViewStub
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout="@layout/activity_main"/>
     </LinearLayout>
 </layout>
 
