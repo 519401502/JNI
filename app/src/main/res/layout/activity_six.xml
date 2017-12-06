@@ -6,21 +6,15 @@
         <variable
             name="data"
             type="Datatt"/>
-        <variable
-            name="zhao"
-            type="com.example.aml.clearn.Zhao"/>
     </data>
     <LinearLayout
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.aml.clearn.SixActivity"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="@{data.name == null ? View.GONE : View.GONE}"
-            android:text="@{data.name ? data.name : zhao.name}"/>
+            android:text="@{data.name}"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,6 +22,8 @@
         <ViewStub
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:visibility="visible"
+            android:id="@+id/view_stub"
             android:layout="@layout/activity_main"/>
     </LinearLayout>
 </layout>
