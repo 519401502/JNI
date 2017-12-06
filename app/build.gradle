@@ -1,11 +1,15 @@
+//声明插件
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
+//    编译SDK的版本
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.example.aml.clearn"
+//        最小sdk版本
         minSdkVersion 19
+//        目标版本
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -16,9 +20,41 @@ android {
             }
         }
     }
+
+    dataBinding {
+        enabled true
+    }
+
+    productFlavors {
+//        xiaomi {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+//        }
+//        _360 {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "_360"]
+//        }
+//        baidu {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+//        }
+//        wandoujia {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+//        }
+    }
+
+    aaptOptions {
+//        不用压缩的文件
+        noCompress 'apk'
+//        打包需要忽略的文件
+        ignoreAssetsPattern "!.svn:!.git"
+
+    }
     buildTypes {
         release {
-            minifyEnabled false
+
+            debuggable false
+//            是否进行混搅
+            minifyEnabled true
+//            是否清除无用的资源， minifyEnabled 为true时才生效
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -27,6 +63,10 @@ android {
             path "CMakeLists.txt"
         }
     }
+}
+
+kapt {
+    generateStubs = true
 }
 
 dependencies {
@@ -38,6 +78,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    kapt "com.android.databinding:compiler:3.0.1"
 }
 repositories {
     mavenCentral()

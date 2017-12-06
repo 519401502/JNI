@@ -13,6 +13,7 @@ class BitmapView(context: Context?) : View(context) {
 
     lateinit var bitmap : Bitmap
     private var product: Int = 1
+    private var picture : Picture? = null
 
     init {
         val input = context?.assets?.open("image2.jpg")
@@ -20,6 +21,11 @@ class BitmapView(context: Context?) : View(context) {
             bitmap = BitmapFactory.decodeStream(input)
             input.close()
         }
+    }
+
+    public fun requestDraw(aPicture: Picture): Unit {
+        this.picture = aPicture
+        invalidate()
     }
 
 
@@ -48,5 +54,8 @@ class BitmapView(context: Context?) : View(context) {
         path.close()
         canvas.drawPath(path, paint)
 //        canvas.drawRoundRect(RectF(0f, 0f, 80f, 200f), 10f, 10f, paint)
+        if (picture != null){
+            canvas.drawPicture(picture)
+        }
     }
 }
