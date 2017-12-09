@@ -10,12 +10,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.aml.clearn.databinding.ActivitySixBinding;
 import com.example.aml.clearn.entity.Data;
+import com.example.aml.clearn.note.NoteInterface;
+import com.example.aml.clearn.note.NoteParse;
 
 public class SixActivity extends AppCompatActivity {
+
+    @NoteInterface(value = R.id.button)
+    private Button mButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,13 @@ public class SixActivity extends AppCompatActivity {
                 Toast.makeText(this, s, Toast.LENGTH_LONG).show();
             }
         }
+        NoteParse.Companion.init(this);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View aView) {
+                Toast.makeText(SixActivity.this, "hello", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
