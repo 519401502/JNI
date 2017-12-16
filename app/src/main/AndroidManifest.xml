@@ -3,6 +3,7 @@
     package="com.example.aml.clearn">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INSTALL_SHORTCUT"/>
 
     <application
         android:allowBackup="true"
@@ -12,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SixActivity"
+        <activity
+            android:name=".NineActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,8 +41,10 @@
         <service android:name=".TransitionActivity$SS" />
 
         <activity android:name=".TextQQ" />
-        <activity android:name=".SevenActivity"
-            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".SevenActivity"
+            android:theme="@style/AppTheme" />
+        <!--<activity android:name=".NineActivity"></activity>-->
     </application>
 
 </manifest>
