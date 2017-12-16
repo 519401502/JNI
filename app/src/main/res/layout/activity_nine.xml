@@ -10,7 +10,8 @@
     tools:context="com.example.aml.clearn.NineActivity">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="20dp"
+        android:background="@color/colorPrimaryDark"
         android:scrollbars="vertical"
         android:id="@+id/text_view"/>
     <WebView
