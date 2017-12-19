@@ -20,9 +20,9 @@ JNIEXPORT void JNICALL Java_com_example_aml_clearn_KotlinActivity_objectToJNI(JN
 }
 
 
-
-
-
+void text(){
+    printf("测试一下JNA");
+}
 
 
 extern "C" JNIEXPORT jstring JNICALL Java_com_example_aml_clearn_KotlinActivity_stringFromJNI(

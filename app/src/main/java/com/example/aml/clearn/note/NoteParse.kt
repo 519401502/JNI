@@ -21,7 +21,9 @@ class NoteParse {
                 array[i].isAccessible = true
                 array[i].set(aActivity, obj)
             }
+
         }
     }
+
 
 }

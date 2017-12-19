@@ -1,4 +1,4 @@
-package com.example.aml.clearn;
+package com.example.aml.mylibrary;
 
 import org.junit.Test;
 

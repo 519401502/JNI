@@ -1,5 +1,6 @@
 package com.example.aml.clearn
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -23,19 +24,18 @@ class KotlinActivity : AppCompatActivity() {
 //        input.read(buffer)
         var huanhuan = Zhao()
         huanhuan.age = 21
-        huanhuan.name = "赵焕焕"
+        huanhuan.name = ""
         objectToJNI(huanhuan)
 //        var bitmap: Bitmap? = null
 //        var ints: IntArray? = kotlin.IntArray(bitmap?.width!! * bitmap.height)
 //        bitmap.getPixels(ints, 0, 0, 0 , 0, bitmap.width, bitmap.height)
-
-
 
         val tv = findViewById<View>(R.id.sample_text) as TextView
 //        tv.text = bitmaplib()
     }
 
     external fun objectToJNI(zhao: Zhao): Void
+
 //
 //    external fun stringFromJNI(): String
 //

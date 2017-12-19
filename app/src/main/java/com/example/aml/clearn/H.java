@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Message;
 
 import java.lang.ref.WeakReference;
-
 /**
  * Created by 18624915319 on 2017/12/10.
  */

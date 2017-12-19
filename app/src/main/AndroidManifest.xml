@@ -3,7 +3,7 @@
     package="com.example.aml.clearn">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.INSTALL_SHORTCUT" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".NineActivity"
+            android:name=".TenActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +44,7 @@
         <activity
             android:name=".SevenActivity"
             android:theme="@style/AppTheme" />
-        <!--<activity android:name=".NineActivity"></activity>-->
+        <!-- <activity android:name=".NineActivity"></activity> -->
     </application>
 
 </manifest>

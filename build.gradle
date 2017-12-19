@@ -2,6 +2,7 @@
 
 //设置脚本的运行环境
 buildscript {
+    ext.kotlin_version = '1.2.10'
     ext.kotlin_version = '1.1.60'
 
 //    依赖库管理
@@ -10,16 +11,18 @@ buildscript {
         jcenter()
     }
 
-
 //    依赖包的定义
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
+
+
 
 
 allprojects {
