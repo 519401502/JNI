@@ -3,6 +3,9 @@ package com.example.aml.mylibrary
 import android.app.IntentService
 import android.content.Intent
 import android.net.LocalServerSocket
+import android.os.Handler
+import android.os.Message
+import android.os.Messenger
 import android.util.Log
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -20,10 +23,6 @@ class SocketService : IntentService("") {
         Log.d("~", "客户端成功连接...")
         val input = socket.inputStream
         val reader = BufferedReader(InputStreamReader(input))
-
-
-
-            Log.d("~", reader.readLine())
-
+        Log.d("~", reader.readLine())
     }
 }

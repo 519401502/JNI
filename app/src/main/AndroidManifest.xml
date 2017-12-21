@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INSTALL_SHORTCUT" />
 
     <application
+        android:name=".XApp"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
@@ -45,6 +46,7 @@
             android:name=".SevenActivity"
             android:theme="@style/AppTheme" />
         <!-- <activity android:name=".NineActivity"></activity> -->
+        <activity android:name=".Main2Activity"></activity>
     </application>
 
 </manifest>
