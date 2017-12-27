@@ -31,4 +31,16 @@
         android:layout_height="wrap_content"
         android:background="?attr/button_bg"
         android:id="@+id/page_view"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="图标"
+        android:background="?attr/button_bg"
+        android:id="@+id/chart_view"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fragments"
+        android:background="?attr/button_bg"
+        android:id="@+id/fragment_view"/>
 </LinearLayout>

@@ -19,7 +19,7 @@ import android.webkit.WebViewClient
 class NineActivity : AppCompatActivity() {
     lateinit var webView: WebView
 
-    val nextText = "<p>MVC 模式代表 Model-View-Controller（模型-视图-控制器） 模式。这种模式用于应用程序的分层开发。</p>\n" +
+    private var nextText = "<p>MVC 模式代表 Model-View-Controller（模型-视图-控制器） 模式。这种模式用于应用程序的分层开发。</p>\n" +
             "<ul class=\"list\">\n" +
             "<li><b>Model（模型）</b> - 模型代表一个存取数据的对象或 JAVA POJO。它也可以带有逻辑，在数据变化时更新控制器。</li>\n" +
             "<li><b>View（视图）</b> - 视图代表模型包含的数据的可视化。</li>\n" +
@@ -158,7 +158,8 @@ class NineActivity : AppCompatActivity() {
                 "\t\t\t\t\t\t\t</script><p><code>c</code> − 要“拓宽”的字符。</p>\n" +
                 "<h2 id=\"h2-u8FD4u56DEu503C\"><a class=\"reference-link\" name=\"返回值\"></a><span class=\"header-link octicon octicon-link\"></span>返回值</h2><ul>\n" +
                 "<li>宽度值等价于<code>c</code>。</li></ul><br/>"
-//        string = string.replace("\n", "<br />")
+        nextText = nextText.replace("\n", "<br />")
+        nextText = nextText.replace("<img", "<img hidden ")
         webView.setVerticalScrollbarOverlay(true)
         //设置WebView支持JavaScript
         webView.settings.javaScriptEnabled = true
@@ -318,7 +319,7 @@ class NineActivity : AppCompatActivity() {
             }
         }
         textView.movementMethod = ScrollingMovementMethod.getInstance()
-        JNAText.INSTANCE.text()
+//        JNAText.INSTANCE.text()
     }
 
 

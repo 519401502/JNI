@@ -46,7 +46,11 @@
             android:name=".SevenActivity"
             android:theme="@style/AppTheme" />
         <!-- <activity android:name=".NineActivity"></activity> -->
-        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".Main3Activity" />
+        <activity android:name=".LazyFragmentActivity" />
+        <activity android:name=".NineActivity" />
+        <activity android:name=".RxActivity"></activity>
     </application>
 
 </manifest>

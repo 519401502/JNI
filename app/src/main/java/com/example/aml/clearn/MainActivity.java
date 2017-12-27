@@ -8,6 +8,7 @@ import android.support.v4.app.JobIntentService;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Property;
+import android.util.TypedValue;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,11 +25,21 @@ public class MainActivity extends AppCompatActivity {
         // Example of a call to a native method
         TextView tv = (TextView) findViewById(R.id.sample_text);
 //        tv.setText(stringFromJNI());
-
-
-
     }
 
+//    Activity被销毁时保存数据
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("~", "");
+    }
+
+//    恢复数据
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        savedInstanceState.getString("~");
+    }
 
     /**
      * A native method that is implemented by the 'native-lib' native library,

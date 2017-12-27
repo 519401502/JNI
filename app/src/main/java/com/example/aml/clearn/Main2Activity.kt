@@ -25,20 +25,17 @@ class Main2Activity : AppCompatActivity(){
         viewPager.adapter = ViewPagerAdapter(this)
 //        viewPager.setPageTransformer()
         Log.d("~", "${viewPager.offscreenPageLimit}")
-        viewPager.pageMargin = 25
+        viewPager.pageMargin = 10
         viewPager.offscreenPageLimit = 3
 //        viewPager.setPageTransformer(true, )
         viewPager.setPageTransformer(true, Tansformer())
         val button = findViewById<Button>(R.id.button)
-
-
         animator = AnimatorInflater.loadAnimator(this, R.animator.scale_large_text)
         animator.setTarget(button)
         button.setOnClickListener{
             viewPager.setCurrentItem(0, false)
             animator.start()
         }
-
     }
 
     override fun onDestroy() {
@@ -51,6 +48,7 @@ class Main2Activity : AppCompatActivity(){
 
         override fun transformPage(page: View?, position: Float) {
             page ?: return
+
         }
 
     }

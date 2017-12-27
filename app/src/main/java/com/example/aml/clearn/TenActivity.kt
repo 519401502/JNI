@@ -36,5 +36,12 @@ class TenActivity : AppCompatActivity() {
         findViewById<Button>(R.id.page_view).setOnClickListener {
             startActivity(Intent(this, Main2Activity::class.java))
         }
+        findViewById<Button>(R.id.chart_view).setOnClickListener {
+            startActivity(Intent(this, Main3Activity::class.java))
+        }
+        findViewById<Button>(R.id.fragment_view).setOnClickListener {
+//            startActivity(Intent(this, LazyFragmentActivity::class.java))
+            startActivity(Intent(this, NineActivity::class.java))
+        }
     }
 }
