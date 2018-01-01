@@ -43,4 +43,6 @@
         android:text="fragments"
         android:background="?attr/button_bg"
         android:id="@+id/fragment_view"/>
+
+
 </LinearLayout>

@@ -10,6 +10,7 @@ import com.example.aml.mylibrary.SocketService
 import java.io.BufferedWriter
 import java.io.OutputStreamWriter
 import java.io.PrintWriter
+import java.util.*
 
 class TenActivity : AppCompatActivity() {
 
@@ -33,9 +34,10 @@ class TenActivity : AppCompatActivity() {
 //        }
 
 
-        findViewById<Button>(R.id.page_view).setOnClickListener {
-            startActivity(Intent(this, Main2Activity::class.java))
-        }
+//        var button = findViewById(R.id.page_view)
+//        button.setOnClickListener {
+//            startActivity(Intent(this, Main2Activity::class.java))
+//        }
         findViewById<Button>(R.id.chart_view).setOnClickListener {
             startActivity(Intent(this, Main3Activity::class.java))
         }
@@ -43,5 +45,10 @@ class TenActivity : AppCompatActivity() {
 //            startActivity(Intent(this, LazyFragmentActivity::class.java))
             startActivity(Intent(this, NineActivity::class.java))
         }
+
+
+
+
+
     }
 }

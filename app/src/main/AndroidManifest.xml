@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".TenActivity"
+            android:name=".RxActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,10 +34,7 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name=".MyReceiver"
-            android:enabled="true"
-            android:exported="true" />
+
 
         <service android:name=".TransitionActivity$SS" />
 
@@ -50,7 +47,12 @@
         <activity android:name=".Main3Activity" />
         <activity android:name=".LazyFragmentActivity" />
         <activity android:name=".NineActivity" />
-        <activity android:name=".RxActivity"></activity>
+
+        <receiver android:name=".MyReceiver">
+            <intent-filter>
+                <action android:name="ELITOR_CLOCK" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
