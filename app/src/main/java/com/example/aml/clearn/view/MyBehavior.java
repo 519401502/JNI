@@ -33,7 +33,7 @@ public class MyBehavior extends CoordinatorLayout.Behavior<View>{
 //    当
     @Override
     public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
-        super.onDependentViewChanged(parent, child, dependency);
+//        super.onDependentViewChanged(parent, child, dependency);
         child.setTranslationX(dependency.getTranslationX());
         child.setTranslationY(dependency.getTranslationY());
 

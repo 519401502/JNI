@@ -11,6 +11,7 @@
     tools:context="com.example.aml.clearn.Main2Activity">
 
 
+
     <com.example.aml.clearn.view.ViewPagerText
         android:id="@+id/view_pager"
         android:layout_width="match_parent"

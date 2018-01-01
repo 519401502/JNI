@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:background="#FFFFFF"
     tools:context="com.example.aml.clearn.RxActivity">
 
@@ -22,6 +22,29 @@
         app:layout_behavior="com.example.aml.clearn.view.MyBehavior"
         android:id="@+id/button2"/>
 
+    <ViewFlipper
+        android:layout_width="match_parent"
+        android:id="@+id/flipper"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@color/colorPrimary"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/image1"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/image2"            />
+
+    </ViewFlipper>
 
 
-</android.support.design.widget.CoordinatorLayout>
+
+
+
+</LinearLayout>
