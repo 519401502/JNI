@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".RxActivity"
+            android:name=".Main4Activity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,8 +34,6 @@
             </intent-filter>
         </activity>
 
-
-
         <service android:name=".TransitionActivity$SS" />
 
         <activity android:name=".TextQQ" />
@@ -53,6 +51,7 @@
                 <action android:name="ELITOR_CLOCK" />
             </intent-filter>
         </receiver>
+
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.app.Application
 import android.graphics.Bitmap
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.HandlerThread
 import android.preference.PreferenceManager
 import android.util.Log
 import rx.*
@@ -42,6 +43,11 @@ class RxActivity : AppCompatActivity() {
 //        var pair = Pair.create()
 //        Application.ActivityLifecycleCallbacks
 
+    }
+
+    fun text(): Unit {
+        val handlerThread = HandlerThread("")
+        handlerThread
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
