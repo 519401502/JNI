@@ -34,7 +34,7 @@ public class MyCanvas extends View {
     private boolean isStart = false;
     private int start = 0;
     private Random random;
-//    public List<PointPaint> list;
+    public List<PointPaint> list;
     //两个随机点
     private Paint mPointPaint1, mPointPaint2;
     private final int paintWidth = 3;

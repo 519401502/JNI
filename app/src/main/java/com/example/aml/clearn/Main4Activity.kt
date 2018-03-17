@@ -15,65 +15,26 @@ import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.aml.clearn.note.DialogFragmentText
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.Retrofit
+
+
+
+
 
 class Main4Activity : AppCompatActivity() {
-
-    lateinit var image: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main4)
 
-
-
-//        image = findViewById(R.id.imageView5)
-//        initArray()
-
-//        val builder = AlertDialog.Builder(this)
-//        builder.setView(R.layout.qq_activity_main4)
-//        var alertDialog = builder.create()
-//        alertDialog.setCancelable(true)
-//        alertDialog.setCanceledOnTouchOutside(false)
-//        val window = alertDialog.getWindow()
-//        window!!.setBackgroundDrawableResource(android.R.color.transparent)
-//        alertDialog.show()
-
-//        mDropDownMenu.setDropDownMenu(tabs, popupViews, contentView);
+        val retrofit = Retrofit.Builder()
+                .baseUrl("https://api.github.com/")
+                .build()
+        var api : API = retrofit.create(API::class.java)
 
     }
-
-
-    private fun initArray() {
-
-        var bitma3 = BitmapFactory.decodeResource(resources, R.drawable.image3)
-
-        var bitmap = Bitmap.createBitmap(bitma3.width, bitma3.height, Bitmap.Config.ARGB_8888)
-
-        var array = FloatArray(20)
-        for (i in 0 until array.size){
-            if (i % 6 == 0)
-                array[i] = 2f
-            else {
-                array[i] = 0f
-            }
-        }
-        var colors = ColorMatrix()
-        colors.set(array)
-
-        var canvas = Canvas(bitmap)
-        var paint = Paint()
-        paint.colorFilter = ColorMatrixColorFilter(colors)
-
-
-        canvas.drawBitmap(bitma3, 0f, 0f, paint)
-        image.setImageBitmap(bitmap)
-    }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-//        防止内存泄漏
-    }
-
 
 }

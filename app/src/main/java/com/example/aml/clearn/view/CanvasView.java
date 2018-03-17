@@ -30,7 +30,6 @@ public class CanvasView extends SurfaceView implements SurfaceHolder.Callback, R
     private int viewSize = 800;
     private Paint mPaintLine;
     private Paint mPaint;
-    private boolean isStart = false;
     private float start = 0;
     private Random random;
     public List<PointPaint> list;
@@ -39,9 +38,8 @@ public class CanvasView extends SurfaceView implements SurfaceHolder.Callback, R
     private final int paintWidth = 3;
     private Paint mPaintC, mPaintCC;
     //初始化角度渐变  从透明-绿色
-    private Shader mShader =
-            new SweepGradient(viewSize >> 1, viewSize >> 1,
-                    Color.TRANSPARENT, Color.GREEN);
+    private Shader mShader = new SweepGradient(viewSize >> 1, viewSize >> 1,
+            Color.TRANSPARENT, Color.GREEN);
     private Matrix matrix = new Matrix();
     //两个随机点坐标值
     private int x1, x2;
@@ -56,7 +54,9 @@ public class CanvasView extends SurfaceView implements SurfaceHolder.Callback, R
     private boolean isReverse1 = false;
     private boolean isReverse2 = false;
     private int halfsize = viewSize >> 1;
-    Paint p = new Paint();
+    private Paint p = new Paint();
+
+    private boolean isRotate = true;
 
 
     public CanvasView(Context context) {
@@ -143,7 +143,6 @@ public class CanvasView extends SurfaceView implements SurfaceHolder.Callback, R
 
         mPointPaint1 = new Paint();
         mPointPaint1.setStrokeWidth(2);
-//        mPointPaint1.setColor(0xFFFF6347);
         mPointPaint1.setColor(Color.RED);
 
         mPointPaint1.setAntiAlias(true);
@@ -164,13 +163,11 @@ public class CanvasView extends SurfaceView implements SurfaceHolder.Callback, R
 
     private void draw() {
         canvas = mHolder.lockCanvas();
-
         //清屏
         p.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         canvas.drawPaint(p);
         p.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
-
-        canvas.save();
+//        canvas.save();
 
         int radius = viewSize >> 1;
         //画内圆
@@ -186,15 +183,15 @@ public class CanvasView extends SurfaceView implements SurfaceHolder.Callback, R
         canvas.concat(matrix);
         //第二种
         canvas.drawArc(new RectF(0, 0, viewSize, viewSize), 0, 180, true, mPaint);
-        canvas.restore();
+//        canvas.restore();
         //画随机点
         int centerx = radius;
         int centery = radius;
-        canvas.save();
-        canvas.scale(0.5f + change1 / 360, 0.5f + change1 / 360);
-        // canvas.drawCircle(200, 200, 8, mPointPaint1);
-        canvas.restore();
+//            canvas.save();
+//        canvas.scale(0.5f + change1 / 360, 0.5f + change1 / 360);
+//            canvas.restore();
 
+        //画随机点
         if (!isReverse1 && flag_reset1) {
             int a = random.nextInt(360);
             int d = random.nextInt(radius);
@@ -222,6 +219,8 @@ public class CanvasView extends SurfaceView implements SurfaceHolder.Callback, R
                 }
             }
         }
+        isRotate = false;
+
 
         if (change1 < 0) {
             isReverse1 = false;
@@ -248,7 +247,6 @@ public class CanvasView extends SurfaceView implements SurfaceHolder.Callback, R
             isReverse2 = true;
             change2 = 255;
         }
-        //
         if (isReverse1) change1 -= 8;
         if (isReverse2) change2 -= 4;
 
@@ -258,8 +256,8 @@ public class CanvasView extends SurfaceView implements SurfaceHolder.Callback, R
         start += 2;
         matrix.reset();
         matrix.postRotate(start, halfsize, halfsize);
+
         mHolder.unlockCanvasAndPost(canvas);
-//        start();
     }
 
 }
