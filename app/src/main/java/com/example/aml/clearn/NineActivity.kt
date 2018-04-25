@@ -10,6 +10,7 @@ import android.support.annotation.RequiresApi
 import android.text.Html
 import android.text.SpannableString
 import android.text.method.ScrollingMovementMethod
+import android.text.util.Linkify
 import android.webkit.WebView
 import android.widget.TextView
 import android.webkit.WebChromeClient
@@ -17,6 +18,7 @@ import android.webkit.WebViewClient
 
 
 class NineActivity : AppCompatActivity() {
+
     lateinit var webView: WebView
 
     private var nextText = "<p>MVC 模式代表 Model-View-Controller（模型-视图-控制器） 模式。这种模式用于应用程序的分层开发。</p>\n" +
@@ -166,16 +168,10 @@ class NineActivity : AppCompatActivity() {
         webView.webChromeClient = WebChromeClient()
 
 
-//        val intent = Intent()
-//        intent.action = "com.android.launcher.action.INSTALL_SHORTCUT"
-//        intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "快捷图标")
-//        intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, BitmapFactory.decodeResource(resources, R.drawable.image1))
-//        val doIntent = Intent()
-//        doIntent.action = "com.example.aml.clearn.SevenActivity"
-//        intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, doIntent)
-//        sendBroadcast(intent)
 
         val textView = findViewById<TextView>(R.id.text_view)
+        textView.text = "http://www.ymstudio.club:8080"
+//        Linkify.addLinks(textView, Linkify.ALL
         textView.setOnClickListener {
             webView.loadUrl("javascript:android('$nextText')")
         }
@@ -312,14 +308,16 @@ class NineActivity : AppCompatActivity() {
 //                "Border Color: Red\n" +
 //                "</pre>\n" +
 //                "</p>").toString()
+
         webView.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                webView.loadUrl("javascript:android('$string')")
+//                webView.loadUrl("javascript:android('$string')")
             }
         }
         textView.movementMethod = ScrollingMovementMethod.getInstance()
 //        JNAText.INSTANCE.text()
+
     }
 
 

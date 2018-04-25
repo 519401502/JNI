@@ -30,7 +30,7 @@ class KotlinActivity : AppCompatActivity() {
 //        var ints: IntArray? = kotlin.IntArray(bitmap?.width!! * bitmap.height)
 //        bitmap.getPixels(ints, 0, 0, 0 , 0, bitmap.width, bitmap.height)
 
-        val tv = findViewById<View>(R.id.sample_text) as TextView
+//        val tv = findViewById<View>(R.id.sample_text) as TextView
 //        tv.text = bitmaplib()
     }
 

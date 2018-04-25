@@ -14,6 +14,15 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="select_photo_dialog_animstyle">
+        <item name="android:windowEnterAnimation">@anim/photo_dialog_in_anim</item>
+        <item name="android:windowExitAnimation">@anim/photo_dialog_out_anim</item>
+    </style>
+    <!-- 头像弹出窗的样式：无边框 背景透明-->
+    <style name="transparentFrameWindowStyle" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
     <style name="AppTheme_Night" parent="Theme.AppCompat.Light.DarkActionBar">
         <!--夜晚模式-->
         <item name="custom_attr_app_bg">#000000</item>
